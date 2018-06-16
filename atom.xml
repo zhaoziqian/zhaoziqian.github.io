@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-15T08:35:57.769Z</updated>
+  <updated>2018-06-16T04:39:14.560Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 系统常用软件安装工具homebrew,常用命令记录</title>
+    <link href="http://yoursite.com/2018/06/16/Mac-%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7homebrew-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2018/06/16/Mac-系统常用软件安装工具homebrew-常用命令记录/</id>
+    <published>2018-06-16T03:55:44.000Z</published>
+    <updated>2018-06-16T04:39:14.560Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Mac-系统常用软件安装工具homebrew-常用命令记录"><a href="#Mac-系统常用软件安装工具homebrew-常用命令记录" class="headerlink" title="Mac-系统常用软件安装工具homebrew-常用命令记录"></a>Mac-系统常用软件安装工具homebrew-常用命令记录</h3><p>在mac系统里我们需要安装软件，除了自己下载安装包，自己安装。还有一种像是在linux系统下，apt，yum命令同样的软件安装工具那就是brew。</p><p>如何安装homebrew这里不介绍了，可以参考官网的安装指南 <strong>【<a href="https://brew.sh/" target="_blank" rel="noopener">homebrew</a>】</strong></p><p>以下记录brew使用中的常用命令</p><ol><li><strong>搜索</strong>：brew search mysql</li><li><strong>查询</strong>：brew info mysql  主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</li><li><strong>更新</strong>：brew update 这会更新Homebrew自己</li><li><strong>检查过时（是否有新版本）</strong>：brew outdated 这回列出所有安装的软件里可以升级的那些</li><li><strong>升级</strong>：brew upgrade 升级所有可以升级的软件们</li><li><strong>清理</strong>：brew cleanup 清理不需要的版本极其安装包缓存</li><li><strong>卸载</strong>：brew uninstall mysql </li><li><strong>帮助</strong>：brew -h</li></ol><hr><p>除了上面这些常用的</p><p>brew list 显示已经安装的软件列表</p><p>brew outdated 查看那些已安装的程序需要更新</p><p>brew services 查看brew可以控制启动的软件</p><p>brew doctor brew的自检</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Mac-系统常用软件安装工具homebrew-常用命令记录&quot;&gt;&lt;a href=&quot;#Mac-系统常用软件安装工具homebrew-常用命令记录&quot; class=&quot;headerlink&quot; title=&quot;Mac-系统常用软件安装工具homebrew-常用命令记录&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="brew使用" scheme="http://yoursite.com/categories/brew%E4%BD%BF%E7%94%A8/"/>
+    
+      <category term="mac系统" scheme="http://yoursite.com/categories/brew%E4%BD%BF%E7%94%A8/mac%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
+    
+      <category term="brew" scheme="http://yoursite.com/tags/brew/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
