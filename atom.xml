@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhaoziqian.top/"/>
-  <updated>2018-06-18T16:41:41.643Z</updated>
+  <updated>2018-06-20T11:43:10.634Z</updated>
   <id>http://zhaoziqian.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fabric-sdk-node 日志等级设置</title>
+    <link href="http://zhaoziqian.top/2018/06/20/fabric-sdk-node-%E6%97%A5%E5%BF%97%E7%AD%89%E7%BA%A7%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://zhaoziqian.top/2018/06/20/fabric-sdk-node-日志等级设置/</id>
+    <published>2018-06-20T11:39:10.000Z</published>
+    <updated>2018-06-20T11:43:10.634Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="fabric-sdk-node-日志等级设置"><a href="#fabric-sdk-node-日志等级设置" class="headerlink" title="fabric-sdk-node 日志等级设置"></a>fabric-sdk-node 日志等级设置</h3><p>在我们使用 fabric-sdk-node 开发客户端的时候，默认的fabric-sdk-node日志等级是info。有很多sdk带有的日志，都是debug的。需要设置一下日志等级将日志显示出来。</p><p>通过查看fabric-sdk-node代码，在fabric-client的包下的utils.js里设置着fabric-sdk-node所使用的默认日志。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">// Internal API.</span><br><span class="line">//</span><br><span class="line">// Get the standard logger to use throughout the SDK code. If the client application has</span><br><span class="line">// configured a logger, then that&apos;ll be returned.</span><br><span class="line">//</span><br><span class="line">// The user can also make user of the built-in &quot;winston&quot; based logger and use the environment</span><br><span class="line">// variable HFC_LOGGING to pass in configurations in the following format:</span><br><span class="line">//</span><br><span class="line">// &#123;</span><br><span class="line">//   &apos;error&apos;: &apos;error.log&apos;,// &apos;error&apos; logs are printed to file &apos;error.log&apos; relative of the current working dir for node.js</span><br><span class="line">//   &apos;debug&apos;: &apos;/tmp/myapp/debug.log&apos;,// &apos;debug&apos; and anything more critical (&apos;info&apos;, &apos;warn&apos;, &apos;error&apos;) can also be an absolute path</span><br><span class="line">//   &apos;info&apos;: &apos;console&apos;// &apos;console&apos; is a keyword for logging to console</span><br><span class="line">// &#125;</span><br><span class="line">//</span><br><span class="line">module.exports.getLogger = function(name) &#123;</span><br><span class="line">var saveLogger = function(logger) &#123;</span><br><span class="line">if (global.hfc) &#123;</span><br><span class="line">global.hfc.logger = logger;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">global.hfc = &#123;</span><br><span class="line">logger: logger</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>大体意思就是说，这个日志只是使用在sdk内容，用户可以自己构造日志对象。也提供了示例格式。只需要在项目中加入环境变量 HFC_LOGGING </p><p>我们要想将日志等级设置成 debug 就可以编译以及json串</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;error&quot;:&quot;error.log&quot;,</span><br><span class="line">    &quot;debug&quot;:&quot;/tmp/myapp/debug.log&quot;,</span><br><span class="line">    &quot;debug&quot;:&quot;console&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后设置到启动时的环境变量里。我使用的webstorm，设置如下图。</p><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-6-20/72427900.jpg" alt="fabric-sdk-node设置日志1"><br><br><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-6-20/90288625.jpg" alt="fabric-sdk-node设置日志1"><br><br><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-6-20/83819818.jpg" alt="fabric-sdk-node设置日志1"><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;fabric-sdk-node-日志等级设置&quot;&gt;&lt;a href=&quot;#fabric-sdk-node-日志等级设置&quot; class=&quot;headerlink&quot; title=&quot;fabric-sdk-node 日志等级设置&quot;&gt;&lt;/a&gt;fabric-sdk-node 日志等级
+      
+    
+    </summary>
+    
+      <category term="区块链" scheme="http://zhaoziqian.top/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+      <category term="Hyperledger fabric" scheme="http://zhaoziqian.top/tags/Hyperledger-fabric/"/>
+    
+      <category term="区块链" scheme="http://zhaoziqian.top/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+      <category term="node.js" scheme="http://zhaoziqian.top/tags/node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac使用VMware Fusion建立centos7最小系统虚拟机</title>
