@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhaoziqian.top/"/>
-  <updated>2018-08-01T08:18:45.315Z</updated>
+  <updated>2018-08-01T08:25:38.861Z</updated>
   <id>http://zhaoziqian.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zookeeper数据查看工具ZooInspector</title>
+    <link href="http://zhaoziqian.top/2018/08/01/Zookeeper%E6%95%B0%E6%8D%AE%E6%9F%A5%E7%9C%8B%E5%B7%A5%E5%85%B7ZooInspector/"/>
+    <id>http://zhaoziqian.top/2018/08/01/Zookeeper数据查看工具ZooInspector/</id>
+    <published>2018-08-01T08:17:18.000Z</published>
+    <updated>2018-08-01T08:25:38.861Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们可以通过ZkCli.sh命令客户端查看,但是直接从控制台操作需要使用各种命令，不是特别方便。</p><p>所以现在推荐这款界面话操作工具ZooInspector，工具为java开发，只要在有GUI和java运行环境的平台就可以使用。</p><p><a href="https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip" target="_blank" rel="noopener">下载地址</a></p><p><a href="https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip</a></p><p>使用方法，解压后进入 <code>build</code>目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar zookeeper-dev-ZooInspector.jar</span><br></pre></td></tr></table></figure><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-8-1/77669483.jpg" alt="image"></p><p>点击左上角绿色运行按钮</p><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-8-1/12380539.jpg" alt="image"></p><p>点击OK，即可查看ZK节点信息</p><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-8-1/16707037.jpg" alt="image"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们可以通过ZkCli.sh命令客户端查看,但是直接从控制台操作需要使用各种命令，不是特别方便。&lt;/p&gt;
+&lt;p&gt;所以现在推荐这款界面话操作工具ZooInspector，工具为java开发，只要在有GUI和java运行环境的平台就可以使用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;h
+      
+    
+    </summary>
+    
+      <category term="中间件" scheme="http://zhaoziqian.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+      <category term="zookeeper" scheme="http://zhaoziqian.top/tags/zookeeper/"/>
+    
+      <category term="中间件" scheme="http://zhaoziqian.top/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>zookeeper集群搭建</title>
@@ -199,9 +228,9 @@
       <category term="mac系统" scheme="http://zhaoziqian.top/categories/mac%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="centos7" scheme="http://zhaoziqian.top/tags/centos7/"/>
-    
       <category term="mac" scheme="http://zhaoziqian.top/tags/mac/"/>
+    
+      <category term="centos7" scheme="http://zhaoziqian.top/tags/centos7/"/>
     
   </entry>
   
