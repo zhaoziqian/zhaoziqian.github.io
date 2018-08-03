@@ -131,7 +131,7 @@
     <link href="http://zhaoziqian.top/2018/07/27/%E4%BB%A3%E7%A0%81%E5%88%86%E5%B1%82/"/>
     <id>http://zhaoziqian.top/2018/07/27/代码分层/</id>
     <published>2018-07-27T01:52:41.000Z</published>
-    <updated>2018-07-27T01:56:35.442Z</updated>
+    <updated>2018-08-03T07:17:55.556Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开发人员代码如何科学分层"><a href="#开发人员代码如何科学分层" class="headerlink" title="开发人员代码如何科学分层"></a>开发人员代码如何科学分层</h1><h4 id="在阿里的编码规范中约束的分层如下"><a href="#在阿里的编码规范中约束的分层如下" class="headerlink" title="在阿里的编码规范中约束的分层如下"></a>在阿里的编码规范中约束的分层如下</h4><!--![image](http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-7-27/61939023.jpg)--><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-7-27/61939023.jpg" alt="分层示意图" style="width:365px !important;"><br><span style="color:#117aa8;font-weight:bold">开放接口层</span>：可直接封装 Service 方法暴露成 RPC 接口;通过 Web 封装成 http 接口;进行 网关安全控制、流量控制等。</p><p><span style="color:#117aa8;font-weight:bold">终端显示层</span>：各个端的模板渲染并执行显示的层。当前主要是 velocity 渲染，JS 渲染， JSP 渲染，移动端展示等。</p><p><span style="color:#117aa8;font-weight:bold">Web 层</span>：主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等。</p><p><span style="color:#117aa8;font-weight:bold">Service 层</span>：相对具体的业务逻辑服务层。</p><p><span style="color:#117aa8;font-weight:bold">Manager 层</span>：通用业务处理层，它有如下特征:1. 对第三方平台封装的层，预处理返回结果及转化异常信息;2. 对Service层通用能力的下沉，如缓存方案、中间件通用处理;3. 与DAO层交互，对多个DAO的组合复用。</p><p><span style="color:#117aa8;font-weight:bold">DAO 层</span>：数据访问层，与底层 MySQL、Oracle、Hbase 进行数据交互。</p><h4 id="分层领域模型的转换"><a href="#分层领域模型的转换" class="headerlink" title="分层领域模型的转换"></a>分层领域模型的转换</h4><p>在阿里巴巴编码规约中列举了下面几个领域模型规约: </p><ul><li><p>DO（Data Object）：与数据库表结构一一对应，通过DAO层向上传输数据源对象。 </p></li><li><p>DTO（Data Transfer Object）：数据传输对象，Service或Manager向外传输的对象。 </p></li><li><p>BO（Business Object）：业务对象。由Service层输出的封装业务逻辑的对象。 </p></li><li><p>AO（Application Object）：应用对象。在Web层与Service层之间抽象的复用对象模型，极为贴近展示层，复用度不高。 </p></li><li><p>VO（View Object）：显示层对象，通常是Web向模板渲染引擎层传输的对象。 </p></li><li><p>Query：数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输。</p></li></ul><table><thead><tr><th>层次</th><th>领域模型</th></tr></thead><tbody><tr><td>Controller/TService</td><td>VO/DTO</td></tr><tr><td>Service/Manager</td><td>AO/BO</td></tr><tr><td>DAO</td><td>DO</td></tr></tbody></table><p>每一个层基本都自己对应的领域模型，这样就导致了有些人过于追求每一层都是用自己的领域模型，这样就导致了一个对象可能会出现3次甚至4次转换在一次请求中，当返回的时候同样也会出现3-4次转换，这样有可能一次完整的请求-返回会出现很多次对象转换。如果在开发中真的按照这么来，恐怕就别写其他的了，一天就光写这个重复无用的逻辑算了吧。</p><p><span style="color:#117aa8;font-weight:bold">所以我们得采取一个折中的方案</span>: </p><ol><li><p>允许Service/Manager可以操作数据领域模型，对于这个层级来说，本来自己做的工作也是做的是业务逻辑处理和数据组装。 </p></li><li><p>Controller/TService层的领域模型不允许传入DAO层，这样就不符合职责划分了。 </p></li><li><p>同理，不允许DAO层的数据传入到Controller/TService。</p></li></ol><p><img src="http://zhaoziqian0627.oss-cn-beijing.aliyuncs.com/18-7-27/30179223.jpg" alt="image"></p>]]></content>
     
@@ -144,10 +144,10 @@
     
     </summary>
     
-      <category term="java" scheme="http://zhaoziqian.top/categories/java/"/>
+      <category term="Java" scheme="http://zhaoziqian.top/categories/Java/"/>
     
     
-      <category term="java" scheme="http://zhaoziqian.top/tags/java/"/>
+      <category term="Java" scheme="http://zhaoziqian.top/tags/Java/"/>
     
       <category term="代码规范" scheme="http://zhaoziqian.top/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/"/>
     
